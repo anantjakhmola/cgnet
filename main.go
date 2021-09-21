@@ -13,7 +13,7 @@ limitations under the License.
 
 package main
 
-import "github.com/kinvolk/cgnet/cmd"
+import "github.com/anantjakhmola/cgnet/cmd"
 
 func main() {
 	cmd.Execute()
