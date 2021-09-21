@@ -47,7 +47,7 @@ func watchCustomResources(ctx context.Context, cfg *rest.Config, events chan Eve
 	}
 
 	// watch new pod events
-	source := cache.NewListWatchFromClient(clientset.Core().RESTClient(), string(v1.ResourcePods), v1.NamespaceDefault, fields.Everything())
+	source := cache.NewListWatchFromClient(clientset.CoreV1().RESTClient(), string(v1.ResourcePods), v1.NamespaceDefault, fields.Everything())
 	_, k8sController := cache.NewInformer(
 		source,
 		&v1.Pod{},
