@@ -12,7 +12,7 @@ all: $(BIN)
 build: deps $(BIN)
 $(BIN): bpf/bindata.go
 	go build \
-	     -ldflags "-X github.com/anantjakhmola/cgnet/cmd" \
+	     -ldflags "-X github.com/anantjakhmola/cgnet/cmd.version=$(VERSION)" \
 	     -o $@ .
 
 bpf/bindata.go:
