@@ -35,7 +35,7 @@ func Setup(cgroupPath string) error {
 		fmt.Printf("using: %s\n", path)
 		b = elf.NewModule(path)
 	} else {
-		reader := bytes.NewReader(assets.MustAsset(assetpath))
+		reader := bytes.NewReader(MustAsset(assetpath))
 		b = elf.NewModuleFromReader(reader)
 	}
 	if b == nil {
