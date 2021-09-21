@@ -23,8 +23,8 @@ import (
 	log "github.com/inconshreveable/log15"
 	"github.com/spf13/cobra"
 
-	"github.com/kinvolk/cgnet/kube"
-	"github.com/kinvolk/cgnet/metrics"
+	"github.com/anantjakhmola/cgnet/kube"
+	"github.com/anantjakhmola/cgnet/metrics"
 )
 
 var (
