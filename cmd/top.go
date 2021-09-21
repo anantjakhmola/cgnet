@@ -17,7 +17,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/kinvolk/cgnet/bpf"
+	"github.com/anantjakhmola/cgnet/bpf"
 	"github.com/spf13/cobra"
 )
 
