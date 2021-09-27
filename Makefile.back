@@ -1,6 +1,6 @@
-CONTAINER= localhost:5000/cgnet-exporter
+CONTAINER=172.31.26.122/cgnet-exporter
 MANIFEST_DIR=manifests/deploy
-MANIFEST=${MANIFEST_DIR}/all-in-one.yaml
+MANIFEST=$(MANIFEST_DIR)/all-in-one.yaml
 BIN=cgnet
 GOOS=linux
 VERSION=$(shell git describe --tags --always --dirty)
@@ -12,27 +12,27 @@ all: $(BIN)
 build: deps $(BIN)
 $(BIN): bpf/bindata.go
 	go build \
-	     -ldflags "-X github.com/anantjakhmola/cgnet/cmd.version=${VERSION}" \
+	     -ldflags "-X github.com/anantjakhmola/cgnet/cmd.version=$(VERSION)" \
 	     -o $@ .
 
 bpf/bindata.go:
 	@make -C bpf/
 
-container: ${BIN}
-	docker build -t ${CONTAINER}:latest .
-	docker push ${CONTAINER}:latest
+container: $(BIN)
+	docker build -t $(CONTAINER):latest .
+	docker push $(CONTAINER):latest
 
-manifest: ${MANIFEST}
-${MANIFEST}:
-	@make -C ${MANIFEST_DIR}
+manifest: $(MANIFEST)
+$(MANIFEST):
+	@make -C $(MANIFEST_DIR)
 
 clean:
-	rm -rf ${BIN}
+	rm -rf $(BIN)
 	@make -C bpf/ clean
 
 deploy-clean: clean
-	@make -C ${MANIFEST_DIR} clean
-	docker rmi ${CONTAINER}:latest
+	@make -C $(MANIFEST_DIR) clean
+	docker rmi $(CONTAINER):latest
 
 deps: build-deps
 	dep ensure -v

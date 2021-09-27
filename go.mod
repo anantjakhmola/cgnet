@@ -5,6 +5,7 @@ go 1.15
 require (
 	github.com/inconshreveable/log15 v0.0.0-20150921213854-b105bd37f74e
 	github.com/iovisor/gobpf v0.0.0-20170717142513-b5eb237fa791
+	github.com/jteeuwen/go-bindata v3.0.7+incompatible // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.2-0.20181231171920-c182affec369 // indirect
 	github.com/prometheus/client_golang v1.11.0
 	github.com/spf13/cobra v1.1.3
